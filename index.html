@@ -32,9 +32,8 @@
         <div class="title-layout">
           <div class="title-content">
             <img src="https://lexolve.com/integrations/lexolve.png" alt="Lexolve" style="height: 45px; margin-bottom: 0.5rem;">
-            <h1>Når AI blir "advokat"</h1>
+            <h1>Pålitelig juridisk AI</h1>
             <p class="subtitle">Slik bygger vi en pålitelig juridisk agent</p>
-            <p style="margin-top: 0.3rem; font-size: 0.85em;" class="text-muted">Fra probabilistisk gjetting til deterministisk rådgivning</p>
             <div class="author">
               <strong>Ole-Magnus Røysted Aker</strong><br>
               CTO, Lexolve
@@ -65,22 +64,85 @@
         </aside>
       </section>
 
-      <!-- Slide 3: Rammen -->
+      <!-- Slide 3: Nåtidsbildet -->
       <section>
-        <h2><i data-lucide="flask-conical" class="icon"></i> Vi forsker på fremtidens juss</h2>
-        <div class="ipn-badge">
-          <img src="forskningsmidler.png" alt="Innovasjonsprosjekt i Næringslivet" style="height: 450px; width: auto;">
+        <h2><i data-lucide="activity" class="icon"></i> Hva bruker bedrifter AI til i dag?</h2>
+        <h3>Dette skjer i loggene våre hver dag</h3>
+        <div class="use-case-grid">
+          <div class="use-case">
+            <i data-lucide="scan" class="use-case-icon"></i>
+            <strong>Gjenkjenning</strong>
+            <p>Laster opp post/filer → AI klassifiserer: "Dette er et kravbrev", "Dette er en signert avtale"</p>
+          </div>
+          <div class="use-case">
+            <i data-lucide="list-tree" class="use-case-icon"></i>
+            <strong>Strukturering</strong>
+            <p>Fra ustrukturert kaos (møtenotater/mailer) → strukturerte tidslinjer og fakta</p>
+          </div>
+          <div class="use-case">
+            <i data-lucide="shield-question" class="use-case-icon"></i>
+            <strong>Review</strong>
+            <p>"Er denne kontrakten farlig?" – kjapp risikosjekk før signering</p>
+          </div>
+          <div class="use-case">
+            <i data-lucide="cog" class="use-case-icon"></i>
+            <strong>Gjennomføring</strong>
+            <p>Kjører tunge prosesser som emisjon og nedbemanning</p>
+          </div>
         </div>
-        <p style="margin-top: 0.5rem;"><strong>Innovasjonsprosjekt i Næringslivet (IPN)</strong> – Skape trygg, etterprøvbar AI for juridiske prosesser</p>
-        <p class="section-label" style="margin-top: 1rem;">Samarbeidspartnere</p>
-        <div class="logo-grid">
-          <img src="https://uit.no/Content/787650/cache=20221309084134/transformation=kompJpgHighTommy/Forskningsradet_Logo_Bokmal_01_Weller_RGB.png" alt="Forskningsrådet">
-          <img src="https://images.squarespace-cdn.com/content/v1/5d1c6c223c9d400001e2f407/29179efa-16f3-4a94-839d-707faabbd130/sintef.png" alt="SINTEF">
-          <img src="https://1737441.fs1.hubspotusercontent-na1.net/hub/1737441/hubfs/NO-bilder/logo-lovdata.png" alt="Lovdata">
-          <img src="https://help.no/media/e40h05ec/_help-logo_2024_rgb_original.svg" alt="HELP Forsikring">
+        <div class="highlight-box" style="margin-top: 0.8rem; text-align: center;">
+          <i data-lucide="sparkles" class="icon-inline"></i> <strong>Status:</strong> AI fungerer i dag som en fantastisk Co-pilot
         </div>
         <aside class="notes">
-          Før jeg går i dybden på koden: Dette er ikke noe vi sitter og hacker sammen på gutterommet. Vi har nylig fått støtte fra Forskningsrådet og jobber tett med SINTEF og Lovdata. Vi forsker på hvordan vi kan garantere kvalitet når maskiner gir juridiske råd.
+          Dette er ikke fremtidsvisjoner, dette skjer i loggene våre hver dag. SMB-er bruker AI til å få jobben gjort på fire hovedområder.
+        </aside>
+      </section>
+
+      <!-- Slide 4: Problemet -->
+      <section>
+        <h2><i data-lucide="alert-octagon" class="icon"></i> Problemet – "The Ceiling"</h2>
+        <h3>Hvorfor kan vi ikke bare bruke ChatGPT?</h3>
+        <p style="margin-top: 0.5rem;"><strong>Krasj i logikk:</strong> En LLM er en <em>sannsynlighetsmaskin</em>. Juss krever <em>determinisme</em>.</p>
+        <div class="columns" style="margin-top: 0.8rem;">
+          <div class="column risk-card low">
+            <i data-lucide="mail" class="icon-inline"></i> <strong>E-post hallusinasjon</strong><br>
+            "Litt pinlig"
+          </div>
+          <div class="column risk-card high" style="background: #fef2f2; border-left-color: #ef4444;">
+            <i data-lucide="alert-triangle" class="icon-inline" style="color: #ef4444;"></i> <strong>Nedbemanning hallusinasjon</strong><br>
+            Ulovlig + erstatningsbetingende
+          </div>
+        </div>
+        <div class="highlight-box" style="margin-top: 0.8rem;">
+          <i data-lucide="key" class="icon-inline"></i> <strong>Erkjennelsen:</strong> For å gå fra "Råd" (tekst) til "Autonom handling" (prosess), trengs det strengere rammer enn bare "god prompting".
+        </div>
+        <aside class="notes">
+          Krasj i logikk: En LLM er en sannsynlighetsmaskin, men juss krever determinisme. Risikoen er at en hallusinasjon i en e-post er litt pinlig, men i en nedbemanning er den ulovlig og potensielt erstatningsbetingende.
+        </aside>
+      </section>
+
+      <!-- Slide 5: Forskningen -->
+      <section>
+        <h2><i data-lucide="flask-conical" class="icon"></i> Hvordan vi løser det</h2>
+        <h3>12 millioner fra Forskningsrådet (IPN)</h3>
+        <div class="research-layout">
+          <div class="research-image">
+            <img src="forskningsmidler.png" alt="Innovasjonsprosjekt i Næringslivet" style="height: 280px; width: auto;">
+          </div>
+          <div class="research-team">
+            <p class="section-label">Teamet</p>
+            <ul>
+              <li><i data-lucide="cpu" class="icon-inline"></i> <strong>SINTEF:</strong> AI-validering og metodikk</li>
+              <li><i data-lucide="database" class="icon-inline"></i> <strong>Lovdata:</strong> Ground Truth (kildedata)</li>
+              <li><i data-lucide="shield-check" class="icon-inline"></i> <strong>HELP:</strong> Juridisk kvalitetssikring</li>
+            </ul>
+          </div>
+        </div>
+        <div class="highlight-box" style="margin-top: 0.8rem;">
+          <i data-lucide="boxes" class="icon-inline"></i> <strong>Hypotesen:</strong> Vi bygger ikke en "bedre modell", vi bygger en <em>arkitektur rundt modellen</em>.
+        </div>
+        <aside class="notes">
+          Vi har fått 12 millioner av Forskningsrådet for å løse nettopp dette kvalitetsproblemet. Vi gjør det ikke alene – SINTEF, Lovdata og HELP er med på laget.
         </aside>
       </section>
 

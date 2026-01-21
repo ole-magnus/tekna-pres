@@ -467,3 +467,56 @@
   margin-top: 0.5em;
   font-weight: 600;
 }
+
+/* Use case grid for Nåtidsbildet slide */
+.use-case-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 0.8rem;
+}
+
+.use-case {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  background: #fafafa;
+  border-left: 3px solid var(--accent);
+}
+
+.use-case-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
+
+.use-case strong {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.use-case p {
+  font-size: 0.85em;
+  margin: 0;
+  color: var(--gray-600);
+}
+
+/* Research layout for Forskningen slide */
+.research-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-top: 0.5rem;
+}
+
+.research-image {
+  flex-shrink: 0;
+}
+
+.research-team {
+  flex: 1;
+}
+
+.research-team ul {
+  margin-top: 0.5rem;
+}
