@@ -185,59 +185,52 @@
         </aside>
       </section>
 
-      <!-- Slide 5: Arkitektur Del 1 -->
+      <!-- Slide: RAG Pipeline -->
       <section>
         <h2><i data-lucide="route" class="icon"></i> Fra tekst til handling</h2>
-        <h3>Intent & Routing med <code>LangGraph</code></h3>
+        <h3>Selvkorrigerende RAG-pipeline</h3>
 
-        <div class="graph-container">
-          <!-- Entry point -->
-          <div class="graph-row">
-            <div class="graph-node entry"><i data-lucide="message-circle" class="icon-inline"></i> Bruker-input</div>
-          </div>
-          <div class="graph-arrow-down"></div>
-
-          <!-- Router -->
-          <div class="graph-row">
-            <div class="graph-node router"><i data-lucide="git-fork" class="icon-inline"></i> Intent Router</div>
+        <div class="rag-flow">
+          <!-- Main flow -->
+          <div class="rag-row">
+            <div class="rag-node start"><i data-lucide="user" class="icon-inline"></i> Bruker-spørsmål</div>
+            <div class="rag-arrow">→</div>
+            <div class="rag-node action"><i data-lucide="search" class="icon-inline"></i> Søk i Lovdata & artikler</div>
+            <div class="rag-arrow">→</div>
+            <div class="rag-node check"><i data-lucide="scale" class="icon-inline"></i> Relevans-sjekk</div>
           </div>
 
-          <!-- Branches -->
-          <div class="graph-branches">
-            <div class="graph-branch short">
-              <div class="graph-arrow-down"></div>
-              <div class="graph-node"><i data-lucide="search" class="icon-inline"></i> RAG</div>
-              <div class="graph-arrow-down"></div>
-              <div class="graph-node end"><i data-lucide="check-circle" class="icon-inline"></i> Svar</div>
-              <div class="graph-label">Enkelt spørsmål</div>
-            </div>
+          <!-- Loop 1 indicator -->
+          <div class="rag-loop-label">
+            <span class="loop-back">↺ Mye støy? Reformuler søk</span>
+          </div>
 
-            <div class="graph-branch medium">
-              <div class="graph-arrow-down"></div>
-              <div class="graph-node"><i data-lucide="alert-circle" class="icon-inline"></i> Analyse</div>
-              <div class="graph-arrow-down"></div>
-              <div class="graph-node"><i data-lucide="user-check" class="icon-inline"></i> Jurist</div>
-              <div class="graph-arrow-down"></div>
-              <div class="graph-node end"><i data-lucide="check-circle" class="icon-inline"></i> Svar</div>
-              <div class="graph-label">Tvist</div>
-            </div>
+          <!-- Second row -->
+          <div class="rag-row">
+            <div class="rag-node action"><i data-lucide="file-text" class="icon-inline"></i> Generer juridisk svar</div>
+            <div class="rag-arrow">→</div>
+            <div class="rag-node check"><i data-lucide="shield-question" class="icon-inline"></i> Faktasjekk</div>
+            <div class="rag-arrow">→</div>
+            <div class="rag-node finish"><i data-lucide="check-circle" class="icon-inline"></i> Svar levert</div>
+          </div>
 
-            <div class="graph-branch long">
-              <div class="graph-arrow-down"></div>
-              <div class="graph-node"><i data-lucide="clipboard-list" class="icon-inline"></i> Validering</div>
-              <div class="graph-arrow-down"></div>
-              <div class="graph-node"><i data-lucide="file-text" class="icon-inline"></i> Dokumenter</div>
-              <div class="graph-arrow-down"></div>
-              <div class="graph-node"><i data-lucide="send" class="icon-inline"></i> Levering</div>
-              <div class="graph-arrow-down"></div>
-              <div class="graph-node end"><i data-lucide="check-circle" class="icon-inline"></i> Ferdig</div>
-              <div class="graph-label">Oppsigelse</div>
-            </div>
+          <!-- Loop 2 indicator -->
+          <div class="rag-loop-label">
+            <span class="loop-back">↺ Hallusinasjon? Korriger mot kilder</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 1rem; margin-top: 1rem; font-size: 0.8em;">
+          <div style="flex: 1; padding: 0.6rem; background: #f0f9ff; border-radius: 6px;">
+            <strong>Støyfilteret:</strong> Kaster irrelevant kontekst før AI-en ser det
+          </div>
+          <div style="flex: 1; padding: 0.6rem; background: #fefce8; border-radius: 6px;">
+            <strong>Løgndetektoren:</strong> Sjekker hver påstand mot kildene
           </div>
         </div>
 
         <aside class="notes">
-          Alt starter med å forstå intensjon. Er dette et enkelt spørsmål om ferieloven, eller er det starten på en oppsigelsessak? Vi bruker en ruter-agent som sender brukeren inn i riktig flyt.
+          Støyfilteret: Vi sender ikke blindt informasjon til AI-en. Først leser en agent gjennom lovtekster og kaster alt irrelevant. Løgndetektoren: Når AI-en har laget et utkast, sjekker en intern dommer hver påstand mot kildene. Loopene viser at systemet er iterativt - det gir ikke opp, men prøver til kvaliteten er godkjent.
         </aside>
       </section>
 
