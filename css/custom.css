@@ -510,13 +510,36 @@
 }
 
 .research-image {
-  flex-shrink: 0;
-}
-
-.research-team {
   flex: 1;
 }
 
-.research-team ul {
+.research-partners {
+  flex: 1;
+}
+
+.partner-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   margin-top: 0.5rem;
+}
+
+.partner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.partner img {
+  height: 35px;
+  width: auto;
+  max-width: 100px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.8;
+}
+
+.partner span {
+  font-size: 0.85em;
+  color: var(--gray-600);
 }
