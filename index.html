@@ -190,42 +190,60 @@
         <h2><i data-lucide="route" class="icon"></i> Fra tekst til handling</h2>
         <h3>Selvkorrigerende RAG-pipeline</h3>
 
-        <div class="rag-flow">
-          <!-- Main flow -->
-          <div class="rag-row">
-            <div class="rag-node start"><i data-lucide="user" class="icon-inline"></i> Bruker-spørsmål</div>
-            <div class="rag-arrow">→</div>
-            <div class="rag-node action"><i data-lucide="search" class="icon-inline"></i> Søk i Lovdata & artikler</div>
-            <div class="rag-arrow">→</div>
-            <div class="rag-node check"><i data-lucide="scale" class="icon-inline"></i> Relevans-sjekk</div>
+        <div class="flowchart">
+          <!-- Row 1: Start -->
+          <div class="fc-row">
+            <div class="fc-node start">👤 Bruker-spørsmål</div>
+          </div>
+          <div class="fc-arrow-down"></div>
+
+          <!-- Row 2: Search -->
+          <div class="fc-row">
+            <div class="fc-node action">🔍 Innhenting av Lovdata & Interne Artikler</div>
+          </div>
+          <div class="fc-arrow-down"></div>
+
+          <!-- Row 3: Relevance check with branches -->
+          <div class="fc-row">
+            <div class="fc-node diamond">⚖️ Relevans-sjekk</div>
+          </div>
+          <div class="fc-branches">
+            <div class="fc-branch-left">
+              <span class="fc-label">Mye støy</span>
+              <div class="fc-node action-small">🔄 Reformuler søk</div>
+              <div class="fc-loop-arrow">↑</div>
+            </div>
+            <div class="fc-branch-right">
+              <span class="fc-label">Relevant kontekst</span>
+              <div class="fc-arrow-down-small"></div>
+            </div>
           </div>
 
-          <!-- Loop 1 indicator -->
-          <div class="rag-loop-label">
-            <span class="loop-back">↺ Mye støy? Reformuler søk</span>
+          <!-- Row 4: Generate -->
+          <div class="fc-row fc-row-right">
+            <div class="fc-node action">📝 Generer Juridisk Svar</div>
+          </div>
+          <div class="fc-arrow-down fc-arrow-right"></div>
+
+          <!-- Row 5: Fact check with branches -->
+          <div class="fc-row">
+            <div class="fc-node diamond">🕵️ Faktasjekk</div>
+          </div>
+          <div class="fc-branches">
+            <div class="fc-branch-left">
+              <span class="fc-label">Mangler kilde</span>
+              <div class="fc-node action-small">🔧 Korriger mot kilder</div>
+              <div class="fc-loop-arrow">↑</div>
+            </div>
+            <div class="fc-branch-right">
+              <span class="fc-label">Verifisert</span>
+              <div class="fc-arrow-down-small"></div>
+            </div>
           </div>
 
-          <!-- Second row -->
-          <div class="rag-row">
-            <div class="rag-node action"><i data-lucide="file-text" class="icon-inline"></i> Generer juridisk svar</div>
-            <div class="rag-arrow">→</div>
-            <div class="rag-node check"><i data-lucide="shield-question" class="icon-inline"></i> Faktasjekk</div>
-            <div class="rag-arrow">→</div>
-            <div class="rag-node finish"><i data-lucide="check-circle" class="icon-inline"></i> Svar levert</div>
-          </div>
-
-          <!-- Loop 2 indicator -->
-          <div class="rag-loop-label">
-            <span class="loop-back">↺ Hallusinasjon? Korriger mot kilder</span>
-          </div>
-        </div>
-
-        <div style="display: flex; gap: 1rem; margin-top: 1rem; font-size: 0.8em;">
-          <div style="flex: 1; padding: 0.6rem; background: #f0f9ff; border-radius: 6px;">
-            <strong>Støyfilteret:</strong> Kaster irrelevant kontekst før AI-en ser det
-          </div>
-          <div style="flex: 1; padding: 0.6rem; background: #fefce8; border-radius: 6px;">
-            <strong>Løgndetektoren:</strong> Sjekker hver påstand mot kildene
+          <!-- Row 6: Finish -->
+          <div class="fc-row fc-row-right">
+            <div class="fc-node finish">✅ Juridisk Svar levert</div>
           </div>
         </div>
 
