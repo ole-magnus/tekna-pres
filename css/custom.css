@@ -313,8 +313,10 @@
 }
 
 .ipn-badge .ipn-image {
-  height: 360px;
+  height: 720px;
   width: auto;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 /* Intro slide layout */
