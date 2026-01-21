@@ -190,61 +190,44 @@
         <h2><i data-lucide="route" class="icon"></i> Fra tekst til handling</h2>
         <h3>Selvkorrigerende RAG-pipeline</h3>
 
-        <div class="flowchart">
-          <!-- Row 1: Start -->
-          <div class="fc-row">
-            <div class="fc-node start">👤 Bruker-spørsmål</div>
-          </div>
-          <div class="fc-arrow-down"></div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem; margin-top: 0.8rem; font-size: 0.85em;">
 
-          <!-- Row 2: Search -->
-          <div class="fc-row">
-            <div class="fc-node action">🔍 Innhenting av Lovdata & Interne Artikler</div>
-          </div>
-          <div class="fc-arrow-down"></div>
+          <div class="fc-box">Bruker-spørsmål</div>
+          <div class="fc-line"></div>
 
-          <!-- Row 3: Relevance check with branches -->
-          <div class="fc-row">
-            <div class="fc-node diamond">⚖️ Relevans-sjekk</div>
-          </div>
-          <div class="fc-branches">
-            <div class="fc-branch-left">
-              <span class="fc-label">Mye støy</span>
-              <div class="fc-node action-small">🔄 Reformuler søk</div>
-              <div class="fc-loop-arrow">↑</div>
+          <div class="fc-box">Søk i Lovdata & Artikler</div>
+          <div class="fc-line"></div>
+
+          <div class="fc-box fc-check">Relevans-sjekk</div>
+          <div style="display: flex; gap: 3rem; align-items: flex-start;">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <span style="font-size: 0.75em; color: #666;">Støy?</span>
+              <div class="fc-box fc-small">Reformuler</div>
+              <span style="color: #666;">↑ loop</span>
             </div>
-            <div class="fc-branch-right">
-              <span class="fc-label">Relevant kontekst</span>
-              <div class="fc-arrow-down-small"></div>
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <span style="font-size: 0.75em; color: #666;">OK</span>
+              <div class="fc-line"></div>
             </div>
           </div>
 
-          <!-- Row 4: Generate -->
-          <div class="fc-row fc-row-right">
-            <div class="fc-node action">📝 Generer Juridisk Svar</div>
-          </div>
-          <div class="fc-arrow-down fc-arrow-right"></div>
+          <div class="fc-box">Generer Svar</div>
+          <div class="fc-line"></div>
 
-          <!-- Row 5: Fact check with branches -->
-          <div class="fc-row">
-            <div class="fc-node diamond">🕵️ Faktasjekk</div>
-          </div>
-          <div class="fc-branches">
-            <div class="fc-branch-left">
-              <span class="fc-label">Mangler kilde</span>
-              <div class="fc-node action-small">🔧 Korriger mot kilder</div>
-              <div class="fc-loop-arrow">↑</div>
+          <div class="fc-box fc-check">Faktasjekk</div>
+          <div style="display: flex; gap: 3rem; align-items: flex-start;">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <span style="font-size: 0.75em; color: #666;">Hallusinering?</span>
+              <div class="fc-box fc-small">Korriger</div>
+              <span style="color: #666;">↑ loop</span>
             </div>
-            <div class="fc-branch-right">
-              <span class="fc-label">Verifisert</span>
-              <div class="fc-arrow-down-small"></div>
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <span style="font-size: 0.75em; color: #666;">Verifisert</span>
+              <div class="fc-line"></div>
             </div>
           </div>
 
-          <!-- Row 6: Finish -->
-          <div class="fc-row fc-row-right">
-            <div class="fc-node finish">✅ Juridisk Svar levert</div>
-          </div>
+          <div class="fc-box fc-finish">Juridisk Svar levert</div>
         </div>
 
         <aside class="notes">
