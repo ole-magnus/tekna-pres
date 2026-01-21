@@ -1,0 +1,205 @@
+/* Lexolve Brand Theme for Reveal.js */
+
+:root {
+  --lexolve-green: #2D866E;
+  --lexolve-grey: #F3EFEC;
+  --lexolve-orange: #F47751;
+  --lexolve-dark: #1a1a1a;
+}
+
+/* Base slide styling */
+.reveal {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.reveal .slides section {
+  background-color: var(--lexolve-grey);
+  color: var(--lexolve-dark);
+}
+
+/* Headings */
+.reveal h1, .reveal h2, .reveal h3 {
+  color: var(--lexolve-green);
+  font-weight: 700;
+  text-transform: none;
+}
+
+.reveal h1 {
+  font-size: 2.2em;
+}
+
+.reveal h2 {
+  font-size: 1.6em;
+  margin-bottom: 0.8em;
+}
+
+.reveal h3 {
+  font-size: 1.2em;
+  color: var(--lexolve-orange);
+}
+
+/* Subtitle styling */
+.reveal .subtitle {
+  color: #666;
+  font-size: 1.1em;
+  font-style: italic;
+  margin-top: -0.5em;
+}
+
+/* Lists */
+.reveal ul, .reveal ol {
+  text-align: left;
+  margin-left: 1em;
+}
+
+.reveal li {
+  margin-bottom: 0.5em;
+  line-height: 1.4;
+}
+
+.reveal li::marker {
+  color: var(--lexolve-orange);
+}
+
+/* Nested lists */
+.reveal ul ul {
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* Emphasis */
+.reveal strong {
+  color: var(--lexolve-green);
+}
+
+.reveal em {
+  color: var(--lexolve-orange);
+}
+
+/* Links */
+.reveal a {
+  color: var(--lexolve-green);
+}
+
+/* Logo grid for partners slide */
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: center;
+  justify-items: center;
+  margin-top: 1.5rem;
+}
+
+.logo-grid img {
+  max-height: 80px;
+  max-width: 200px;
+  object-fit: contain;
+}
+
+/* Title slide specific */
+.title-slide {
+  text-align: center;
+}
+
+.title-slide h1 {
+  font-size: 2em;
+  line-height: 1.2;
+}
+
+.title-slide .author {
+  margin-top: 2rem;
+  font-size: 1.1em;
+  color: #555;
+}
+
+.title-slide .author strong {
+  color: var(--lexolve-dark);
+}
+
+/* Speaker notes indicator (hidden in presentation) */
+.reveal aside.notes {
+  display: none;
+}
+
+/* Highlight boxes */
+.highlight-box {
+  background: white;
+  border-left: 4px solid var(--lexolve-orange);
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  text-align: left;
+}
+
+/* Two-column layout */
+.columns {
+  display: flex;
+  gap: 2rem;
+}
+
+.columns .column {
+  flex: 1;
+  text-align: left;
+}
+
+/* Flow diagrams (text-based) */
+.flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.9em;
+  flex-wrap: wrap;
+}
+
+.flow .arrow {
+  color: var(--lexolve-orange);
+  font-weight: bold;
+}
+
+.flow .box {
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: 2px solid var(--lexolve-green);
+}
+
+/* Conclusion slide */
+.conclusion h2 {
+  margin-bottom: 1.5rem;
+}
+
+/* Code/technical terms */
+.reveal code {
+  background: rgba(45, 134, 110, 0.1);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+/* Quote styling for talepunkter preview */
+.reveal blockquote {
+  border-left: 4px solid var(--lexolve-orange);
+  padding-left: 1rem;
+  font-style: italic;
+  color: #555;
+}
+
+/* Lexolve logo in corner */
+.reveal .slide-logo {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  height: 40px;
+  opacity: 0.7;
+}
+
+/* Progress bar */
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.1);
+  height: 4px;
+}
+
+.reveal .progress span {
+  background: var(--lexolve-green);
+}

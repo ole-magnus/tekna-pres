@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Når AI blir "advokat" - Lexolve</title>
+
+  <!-- Reveal.js CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/white.min.css">
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom Lexolve theme -->
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Slide 1: Tittel -->
+      <section class="title-slide">
+        <img src="https://lexolve.com/integrations/lexolve.png" alt="Lexolve" style="height: 60px; margin-bottom: 1rem;">
+        <h1>Når AI blir "advokat"</h1>
+        <p class="subtitle">Slik bygger vi en pålitelig juridisk agent</p>
+        <p style="color: #888; margin-top: 0.5rem; font-size: 0.9em;">Fra probabilistisk gjetting til deterministisk rådgivning</p>
+        <div class="author">
+          <strong>Ole-Magnus Røysted Aker</strong><br>
+          CTO, Lexolve
+        </div>
+        <aside class="notes">
+          Velkommen! I dag skal jeg snakke om hvordan vi bygger AI-agenter som gir juridiske råd – og hvorfor det krever en helt annen tilnærming enn vanlig chatbot-teknologi.
+        </aside>
+      </section>
+
+      <!-- Slide 2: Intro -->
+      <section>
+        <h2>Ole-Magnus Røysted Aker</h2>
+        <ul>
+          <li><strong>CTO i Lexolve</strong> (Tidl. Schibsted, Netlight, Tise)</li>
+          <li>Sivilingeniør & stolt Tekna-medlem</li>
+          <li><strong>Lexolve:</strong> En AI-drevet juridisk plattform for bedrifter</li>
+        </ul>
+        <div class="highlight-box" style="margin-top: 1.5rem;">
+          <strong>Vår filosofi:</strong> Vi automatiserer juss for sluttkunden, ikke bare for advokaten.
+        </div>
+        <aside class="notes">
+          Hei, jeg er sivilingeniør og Tekna-medlem, men jobber midt i smørøyet av juss og teknologi. I Lexolve bygger vi ikke verktøy for å fakturere flere timer, vi bygger plattformen som lar bedrifter løse jussen selv.
+        </aside>
+      </section>
+
+      <!-- Slide 3: Rammen -->
+      <section>
+        <h2>Vi forsker på fremtidens juss</h2>
+        <ul>
+          <li>Nylig tildelt <strong>IPN-støtte</strong> fra Forskningsrådet</li>
+          <li>Mål: Skape trygg, etterprøvbar AI for juridiske prosesser</li>
+        </ul>
+        <p style="margin-top: 1.5rem; color: #666;"><em>Samarbeidspartnere:</em></p>
+        <div class="logo-grid">
+          <img src="https://uit.no/Content/787650/cache=20221309084134/transformation=kompJpgHighTommy/Forskningsradet_Logo_Bokmal_01_Weller_RGB.png" alt="Forskningsrådet">
+          <img src="https://images.squarespace-cdn.com/content/v1/5d1c6c223c9d400001e2f407/29179efa-16f3-4a94-839d-707faabbd130/sintef.png" alt="SINTEF">
+          <img src="https://1737441.fs1.hubspotusercontent-na1.net/hub/1737441/hubfs/NO-bilder/logo-lovdata.png" alt="Lovdata">
+          <img src="https://help.no/media/e40h05ec/_help-logo_2024_rgb_original.svg" alt="HELP Forsikring">
+        </div>
+        <aside class="notes">
+          Før jeg går i dybden på koden: Dette er ikke noe vi sitter og hacker sammen på gutterommet. Vi har nylig fått støtte fra Forskningsrådet og jobber tett med SINTEF og Lovdata. Vi forsker på hvordan vi kan garantere kvalitet når maskiner gir juridiske råd.
+        </aside>
+      </section>
+
+      <!-- Slide 4: Filosofien -->
+      <section>
+        <h2>Frihet under ansvar</h2>
+        <h3>Vi lar LLM-en løpe løpsk – innenfor trygge rammer</h3>
+        <div class="columns" style="margin-top: 1.5rem;">
+          <div class="column">
+            <p><strong style="color: #2D866E;">LLM-ens styrke:</strong></p>
+            <ul>
+              <li>Språk og formulering</li>
+              <li>Resonnering</li>
+              <li>"Common sense"</li>
+            </ul>
+          </div>
+          <div class="column">
+            <p><strong style="color: #F47751;">LLM-ens svakhet:</strong></p>
+            <ul>
+              <li>Kan hallusinere fakta</li>
+              <li>Forstår ikke prosess</li>
+              <li>Ingen kildekritikk</li>
+            </ul>
+          </div>
+        </div>
+        <div class="highlight-box" style="margin-top: 1.5rem;">
+          <strong>Løsningen:</strong> Vi bygger <em>Agenter</em>, ikke modeller. Vi tvinger modellen til å bruke deterministiske API-er, henvise til faktiske kilder, og estimere egen usikkerhet.
+        </div>
+        <aside class="notes">
+          Vi prøver ikke å trene en modell til å kunne Norges Lover utenat. Vi bruker LLM-en som en resonnerings-motor, men vi tvinger den inn i strenge rammer. Den får være kreativ på språk, men den må følge våre regler på juss.
+        </aside>
+      </section>
+
+      <!-- Slide 5: Arkitektur Del 1 -->
+      <section>
+        <h2>Fra tekst til handling</h2>
+        <h3>Intent & Routing</h3>
+        <p style="margin-top: 1rem;">Vi bruker rammeverk som <code>LangGraph</code> for å styre flyten:</p>
+        <div style="margin: 1.5rem 0;">
+          <p><strong>Steg 1: Intent Identification</strong> – Hva vil brukeren?</p>
+          <ul>
+            <li>Enkelt spørsmål? → <em>RAG-søk</em></li>
+            <li>Tvist? → <em>Eskalerings-agent</em></li>
+            <li>Oppsigelse? → <em>Prosess-agent</em></li>
+          </ul>
+        </div>
+        <div class="highlight-box">
+          <strong>ReAct-mønsteret:</strong> Agenten "tenker" før den handler<br>
+          <div class="flow" style="margin-top: 0.5rem;">
+            <span class="box">Thought</span>
+            <span class="arrow">→</span>
+            <span class="box">Action</span>
+            <span class="arrow">→</span>
+            <span class="box">Observation</span>
+            <span class="arrow">→</span>
+            <span>...</span>
+          </div>
+        </div>
+        <aside class="notes">
+          Alt starter med å forstå intensjon. Er dette et enkelt spørsmål om ferieloven, eller er det starten på en oppsigelsessak? Vi bruker en ruter-agent som sender brukeren inn i riktig flyt.
+        </aside>
+      </section>
+
+      <!-- Slide 6: Arkitektur Del 2 -->
+      <section>
+        <h2>Juss er rekkefølge</h2>
+        <h3>DAG-basert prosessvalidering</h3>
+        <p style="margin-top: 1rem;">En språkmodell forstår ikke tid og kausalitet.<br>Vi bruker <strong>Directed Acyclic Graphs (DAGs)</strong> for å validere logikken.</p>
+        <div style="margin: 1.5rem 0;">
+          <p><strong>Eksempler på "Hard Constraints":</strong></p>
+          <ul>
+            <li><strong>Selskapsrett:</strong> Du kan ikke registrere en emisjon før den er vedtatt på styremøte/GF</li>
+            <li><strong>Arbeidsrett:</strong> Du kan ikke sende oppsigelse før drøftelsesmøtet er avholdt</li>
+          </ul>
+        </div>
+        <div class="flow" style="background: white; padding: 1rem; border-radius: 8px;">
+          <span class="box">Innkalling</span>
+          <span class="arrow">→</span>
+          <span class="box">Drøftelsesmøte</span>
+          <span class="arrow">→</span>
+          <span class="box">Oppsigelse</span>
+        </div>
+        <aside class="notes">
+          Her skiller juss seg fra poesi. Rekkefølgen er kritisk. En ren LLM kan finne på å lage oppsigelsesbrevet før innkallingen til drøftelsesmøte. Det er ulovlig. Derfor bruker vi DAG-validering som tvinger prosessen til å følge lovens rekkefølge, uansett hva AI-en foreslår.
+        </aside>
+      </section>
+
+      <!-- Slide 7: Arkitektur Del 3 -->
+      <section>
+        <h2>Når skal maskinen be om hjelp?</h2>
+        <h3>Usikkerhet & Human-in-the-loop</h3>
+        <ul style="margin-top: 1rem;">
+          <li><strong>Conformal Prediction:</strong> Beregner matematisk konfidensintervall på svaret</li>
+          <li><strong>Risiko-styring:</strong> Vi ruter basert på kontekst og konsekvens</li>
+        </ul>
+        <div class="columns" style="margin-top: 1.5rem;">
+          <div class="column highlight-box" style="border-left-color: #2D866E;">
+            <strong style="color: #2D866E;">Lav risiko</strong><br>
+            AI svarer autonomt
+          </div>
+          <div class="column highlight-box" style="border-left-color: #F47751;">
+            <strong style="color: #F47751;">Høy risiko</strong><br>
+            Skattefunn, nedbemanning<br>
+            → Eskaleres til jurist
+          </div>
+        </div>
+        <p style="margin-top: 1rem; text-align: center;"><em>Målet: Riktig menneske på riktig tidspunkt</em></p>
+        <aside class="notes">
+          Nøkkelen til suksess er ikke å fjerne mennesker, men å bruke dem riktig. Vi måler usikkerheten i hvert steg. Hvis systemet er usikkert, eller hvis konsekvensene er store (f.eks. ved nedbemanning), stopper agenten opp og sier: 'Her trenger jeg en jurist'.
+        </aside>
+      </section>
+
+      <!-- Slide 8: Innovasjonen -->
+      <section>
+        <h2>End-to-end leveranse</h2>
+        <h3>Den uslåelige komboen</h3>
+        <p style="margin-top: 1rem;">De fleste "Legal Tech"-verktøy er laget for advokater.<br><strong>Vi lager verktøy for sluttkunden (Bedriften).</strong></p>
+        <div class="flow" style="margin: 2rem 0; background: white; padding: 1.5rem; border-radius: 8px;">
+          <span class="box">Kunde</span>
+          <span class="arrow">+</span>
+          <span class="box">AI-Agenter</span>
+          <span class="arrow">+</span>
+          <span class="box">Plattform-verktøy</span>
+          <span class="arrow">+</span>
+          <span class="box">Jurister</span>
+        </div>
+        <p style="text-align: center;"><em>Alt i én sømløs flyt</em></p>
+        <aside class="notes">
+          Det unike med Lexolve er at vi henvender oss direkte til bedriften. Innovasjonen ligger i å sy sammen hele leveransen: Kunden starter med AI, systemet henter data, verktøyene genererer dokumentene, og ved behov kobles en jurist på i samme plattform. Det er en uslåelig kombo.
+        </aside>
+      </section>
+
+      <!-- Slide 9: Konklusjon -->
+      <section class="conclusion">
+        <h2>Grensene flyttes hver måned</h2>
+        <ul style="margin-top: 1.5rem;">
+          <li>Hva kundene klarer selv (Self-service) øker <strong>eksponentielt</strong></li>
+          <li>Vi går fra "AI som skriver" til <strong>"AI som utfører"</strong> (Agenter)</li>
+        </ul>
+        <div class="highlight-box" style="margin-top: 2rem; text-align: center;">
+          <strong>Oppfordring:</strong> Ikke bygg egne modeller. Bygg prosesser oppå de beste modellene.
+        </div>
+        <h2 style="margin-top: 2rem;">Takk for meg!</h2>
+        <p style="color: #666;">ole-magnus@lexolve.com</p>
+        <aside class="notes">
+          Vi ser at grensen for hva en kunde kan gjøre helt selv, flytter seg nesten fra måned til måned. Det som krevde advokat i fjor, løses av en agent i år. Takk for meg.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/notes/notes.min.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      progress: true,
+      controls: true,
+      center: true,
+      transition: 'slide',
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>
