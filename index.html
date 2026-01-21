@@ -113,28 +113,54 @@
       <!-- Slide 5: Arkitektur Del 1 -->
       <section>
         <h2><i data-lucide="route" class="icon"></i> Fra tekst til handling</h2>
-        <h3>Intent & Routing</h3>
-        <p style="margin-top: 0.4rem;">Vi bruker rammeverk som <code>LangGraph</code> for å styre flyten:</p>
-        <div style="margin: 0.5rem 0;">
-          <p><strong>Steg 1: Intent Identification</strong> – Hva vil brukeren?</p>
-          <ul>
-            <li><i data-lucide="search" class="icon-inline"></i> Enkelt spørsmål? → <em>RAG-søk</em></li>
-            <li><i data-lucide="alert-circle" class="icon-inline"></i> Tvist? → <em>Eskalerings-agent</em></li>
-            <li><i data-lucide="file-text" class="icon-inline"></i> Oppsigelse? → <em>Prosess-agent</em></li>
-          </ul>
-        </div>
-        <div class="highlight-box">
-          <strong>ReAct-mønsteret:</strong> Agenten "tenker" før den handler
-          <div class="flow" style="margin-top: 0.5rem;">
-            <span class="box"><i data-lucide="brain" class="icon-inline"></i> Thought</span>
-            <span class="arrow">→</span>
-            <span class="box"><i data-lucide="play" class="icon-inline"></i> Action</span>
-            <span class="arrow">→</span>
-            <span class="box"><i data-lucide="eye" class="icon-inline"></i> Observation</span>
-            <span class="arrow">→</span>
-            <span class="text-muted">...</span>
+        <h3>Intent & Routing med <code>LangGraph</code></h3>
+
+        <div class="graph-container">
+          <!-- Entry point -->
+          <div class="graph-row">
+            <div class="graph-node entry"><i data-lucide="message-circle" class="icon-inline"></i> Bruker-input</div>
+          </div>
+          <div class="graph-arrow-down"></div>
+
+          <!-- Router -->
+          <div class="graph-row">
+            <div class="graph-node router"><i data-lucide="git-fork" class="icon-inline"></i> Intent Router</div>
+          </div>
+
+          <!-- Branches -->
+          <div class="graph-branches">
+            <div class="graph-branch short">
+              <div class="graph-arrow-down"></div>
+              <div class="graph-node"><i data-lucide="search" class="icon-inline"></i> RAG</div>
+              <div class="graph-arrow-down"></div>
+              <div class="graph-node end"><i data-lucide="check-circle" class="icon-inline"></i> Svar</div>
+              <div class="graph-label">Enkelt spørsmål</div>
+            </div>
+
+            <div class="graph-branch medium">
+              <div class="graph-arrow-down"></div>
+              <div class="graph-node"><i data-lucide="alert-circle" class="icon-inline"></i> Analyse</div>
+              <div class="graph-arrow-down"></div>
+              <div class="graph-node"><i data-lucide="user-check" class="icon-inline"></i> Jurist</div>
+              <div class="graph-arrow-down"></div>
+              <div class="graph-node end"><i data-lucide="check-circle" class="icon-inline"></i> Svar</div>
+              <div class="graph-label">Tvist</div>
+            </div>
+
+            <div class="graph-branch long">
+              <div class="graph-arrow-down"></div>
+              <div class="graph-node"><i data-lucide="clipboard-list" class="icon-inline"></i> Validering</div>
+              <div class="graph-arrow-down"></div>
+              <div class="graph-node"><i data-lucide="file-text" class="icon-inline"></i> Dokumenter</div>
+              <div class="graph-arrow-down"></div>
+              <div class="graph-node"><i data-lucide="send" class="icon-inline"></i> Levering</div>
+              <div class="graph-arrow-down"></div>
+              <div class="graph-node end"><i data-lucide="check-circle" class="icon-inline"></i> Ferdig</div>
+              <div class="graph-label">Oppsigelse</div>
+            </div>
           </div>
         </div>
+
         <aside class="notes">
           Alt starter med å forstå intensjon. Er dette et enkelt spørsmål om ferieloven, eller er det starten på en oppsigelsessak? Vi bruker en ruter-agent som sender brukeren inn i riktig flyt.
         </aside>
