@@ -23,10 +23,10 @@
 
       <!-- Slide 1: Tittel -->
       <section class="title-slide">
-        <img src="https://lexolve.com/integrations/lexolve.png" alt="Lexolve" style="height: 60px; margin-bottom: 1rem;">
+        <img src="https://lexolve.com/integrations/lexolve.png" alt="Lexolve" style="height: 50px; margin-bottom: 0.5rem;">
         <h1>Når AI blir "advokat"</h1>
         <p class="subtitle">Slik bygger vi en pålitelig juridisk agent</p>
-        <p style="color: #888; margin-top: 0.5rem; font-size: 0.9em;">Fra probabilistisk gjetting til deterministisk rådgivning</p>
+        <p style="color: #888; margin-top: 0.3rem; font-size: 0.8em;">Fra probabilistisk gjetting til deterministisk rådgivning</p>
         <div class="author">
           <strong>Ole-Magnus Røysted Aker</strong><br>
           CTO, Lexolve
@@ -44,7 +44,7 @@
           <li>Sivilingeniør & stolt Tekna-medlem</li>
           <li><strong>Lexolve:</strong> En AI-drevet juridisk plattform for bedrifter</li>
         </ul>
-        <div class="highlight-box" style="margin-top: 1.5rem;">
+        <div class="highlight-box" style="margin-top: 0.8rem;">
           <strong>Vår filosofi:</strong> Vi automatiserer juss for sluttkunden, ikke bare for advokaten.
         </div>
         <aside class="notes">
@@ -59,7 +59,7 @@
           <li>Nylig tildelt <strong>IPN-støtte</strong> fra Forskningsrådet</li>
           <li>Mål: Skape trygg, etterprøvbar AI for juridiske prosesser</li>
         </ul>
-        <p style="margin-top: 1.5rem; color: #666;"><em>Samarbeidspartnere:</em></p>
+        <p style="margin-top: 0.6rem; color: #666;"><em>Samarbeidspartnere:</em></p>
         <div class="logo-grid">
           <img src="https://uit.no/Content/787650/cache=20221309084134/transformation=kompJpgHighTommy/Forskningsradet_Logo_Bokmal_01_Weller_RGB.png" alt="Forskningsrådet">
           <img src="https://images.squarespace-cdn.com/content/v1/5d1c6c223c9d400001e2f407/29179efa-16f3-4a94-839d-707faabbd130/sintef.png" alt="SINTEF">
@@ -75,7 +75,7 @@
       <section>
         <h2>Frihet under ansvar</h2>
         <h3>Vi lar LLM-en løpe løpsk – innenfor trygge rammer</h3>
-        <div class="columns" style="margin-top: 1.5rem;">
+        <div class="columns" style="margin-top: 0.6rem;">
           <div class="column">
             <p><strong style="color: #2D866E;">LLM-ens styrke:</strong></p>
             <ul>
@@ -93,7 +93,7 @@
             </ul>
           </div>
         </div>
-        <div class="highlight-box" style="margin-top: 1.5rem;">
+        <div class="highlight-box" style="margin-top: 0.6rem;">
           <strong>Løsningen:</strong> Vi bygger <em>Agenter</em>, ikke modeller. Vi tvinger modellen til å bruke deterministiske API-er, henvise til faktiske kilder, og estimere egen usikkerhet.
         </div>
         <aside class="notes">
@@ -105,8 +105,8 @@
       <section>
         <h2>Fra tekst til handling</h2>
         <h3>Intent & Routing</h3>
-        <p style="margin-top: 1rem;">Vi bruker rammeverk som <code>LangGraph</code> for å styre flyten:</p>
-        <div style="margin: 1.5rem 0;">
+        <p style="margin-top: 0.4rem;">Vi bruker rammeverk som <code>LangGraph</code> for å styre flyten:</p>
+        <div style="margin: 0.5rem 0;">
           <p><strong>Steg 1: Intent Identification</strong> – Hva vil brukeren?</p>
           <ul>
             <li>Enkelt spørsmål? → <em>RAG-søk</em></li>
@@ -135,15 +135,15 @@
       <section>
         <h2>Juss er rekkefølge</h2>
         <h3>DAG-basert prosessvalidering</h3>
-        <p style="margin-top: 1rem;">En språkmodell forstår ikke tid og kausalitet.<br>Vi bruker <strong>Directed Acyclic Graphs (DAGs)</strong> for å validere logikken.</p>
-        <div style="margin: 1.5rem 0;">
+        <p style="margin-top: 0.4rem;">En språkmodell forstår ikke tid og kausalitet.<br>Vi bruker <strong>Directed Acyclic Graphs (DAGs)</strong> for å validere logikken.</p>
+        <div style="margin: 0.5rem 0;">
           <p><strong>Eksempler på "Hard Constraints":</strong></p>
           <ul>
             <li><strong>Selskapsrett:</strong> Du kan ikke registrere en emisjon før den er vedtatt på styremøte/GF</li>
             <li><strong>Arbeidsrett:</strong> Du kan ikke sende oppsigelse før drøftelsesmøtet er avholdt</li>
           </ul>
         </div>
-        <div class="flow" style="background: white; padding: 1rem; border-radius: 8px;">
+        <div class="flow" style="background: white; padding: 0.5rem; border-radius: 6px;">
           <span class="box">Innkalling</span>
           <span class="arrow">→</span>
           <span class="box">Drøftelsesmøte</span>
@@ -159,11 +159,11 @@
       <section>
         <h2>Når skal maskinen be om hjelp?</h2>
         <h3>Usikkerhet & Human-in-the-loop</h3>
-        <ul style="margin-top: 1rem;">
+        <ul style="margin-top: 0.4rem;">
           <li><strong>Conformal Prediction:</strong> Beregner matematisk konfidensintervall på svaret</li>
           <li><strong>Risiko-styring:</strong> Vi ruter basert på kontekst og konsekvens</li>
         </ul>
-        <div class="columns" style="margin-top: 1.5rem;">
+        <div class="columns" style="margin-top: 0.6rem;">
           <div class="column highlight-box" style="border-left-color: #2D866E;">
             <strong style="color: #2D866E;">Lav risiko</strong><br>
             AI svarer autonomt
@@ -174,7 +174,7 @@
             → Eskaleres til jurist
           </div>
         </div>
-        <p style="margin-top: 1rem; text-align: center;"><em>Målet: Riktig menneske på riktig tidspunkt</em></p>
+        <p style="margin-top: 0.5rem; text-align: center;"><em>Målet: Riktig menneske på riktig tidspunkt</em></p>
         <aside class="notes">
           Nøkkelen til suksess er ikke å fjerne mennesker, men å bruke dem riktig. Vi måler usikkerheten i hvert steg. Hvis systemet er usikkert, eller hvis konsekvensene er store (f.eks. ved nedbemanning), stopper agenten opp og sier: 'Her trenger jeg en jurist'.
         </aside>
@@ -184,8 +184,8 @@
       <section>
         <h2>End-to-end leveranse</h2>
         <h3>Den uslåelige komboen</h3>
-        <p style="margin-top: 1rem;">De fleste "Legal Tech"-verktøy er laget for advokater.<br><strong>Vi lager verktøy for sluttkunden (Bedriften).</strong></p>
-        <div class="flow" style="margin: 2rem 0; background: white; padding: 1.5rem; border-radius: 8px;">
+        <p style="margin-top: 0.4rem;">De fleste "Legal Tech"-verktøy er laget for advokater.<br><strong>Vi lager verktøy for sluttkunden (Bedriften).</strong></p>
+        <div class="flow" style="margin: 0.8rem 0; background: white; padding: 0.6rem; border-radius: 6px;">
           <span class="box">Kunde</span>
           <span class="arrow">+</span>
           <span class="box">AI-Agenter</span>
@@ -203,14 +203,14 @@
       <!-- Slide 9: Konklusjon -->
       <section class="conclusion">
         <h2>Grensene flyttes hver måned</h2>
-        <ul style="margin-top: 1.5rem;">
+        <ul style="margin-top: 0.6rem;">
           <li>Hva kundene klarer selv (Self-service) øker <strong>eksponentielt</strong></li>
           <li>Vi går fra "AI som skriver" til <strong>"AI som utfører"</strong> (Agenter)</li>
         </ul>
-        <div class="highlight-box" style="margin-top: 2rem; text-align: center;">
+        <div class="highlight-box" style="margin-top: 0.8rem; text-align: center;">
           <strong>Oppfordring:</strong> Ikke bygg egne modeller. Bygg prosesser oppå de beste modellene.
         </div>
-        <h2 style="margin-top: 2rem;">Takk for meg!</h2>
+        <h2 style="margin-top: 1rem;">Takk for meg!</h2>
         <p style="color: #666;">ole-magnus@lexolve.com</p>
         <aside class="notes">
           Vi ser at grensen for hva en kunde kan gjøre helt selv, flytter seg nesten fra måned til måned. Det som krevde advokat i fjor, løses av en agent i år. Takk for meg.
