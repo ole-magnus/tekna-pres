@@ -118,8 +118,30 @@
 
 /* Title slide */
 .title-slide {
-  text-align: center;
   justify-content: center !important;
+}
+
+.title-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  width: 100%;
+}
+
+.title-content {
+  flex: 1;
+  text-align: left;
+}
+
+.title-screenshot {
+  flex: 1;
+}
+
+.title-screenshot .screenshot {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--gray-400);
 }
 
 .title-slide h1 {
@@ -127,7 +149,7 @@
 }
 
 .title-slide .author {
-  margin-top: 2em;
+  margin-top: 1.5em;
   font-size: 0.9em;
   color: var(--gray-600);
 }
