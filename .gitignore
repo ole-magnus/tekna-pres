@@ -1,5 +1,6 @@
 node_modules/
-*.png
+test_*.png
+screenshots/
 package.json
 package-lock.json
 screenshot.js
