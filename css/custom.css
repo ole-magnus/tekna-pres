@@ -1,154 +1,160 @@
-/* Lexolve Brand Theme for Reveal.js */
+/* shadcn-inspired Design System for Reveal.js */
 
 :root {
-  --lexolve-green: #2D866E;
-  --lexolve-grey: #F3EFEC;
-  --lexolve-orange: #F47751;
-  --lexolve-dark: #1a1a1a;
+  /* Colors - shadcn/zinc palette */
+  --background: #ffffff;
+  --card: #fafafa;
+  --card-hover: #f4f4f5;
+  --border: #e4e4e7;
+  --text-primary: #18181b;
+  --text-secondary: #3f3f46;
+  --text-muted: #71717a;
+  --accent: #2D866E;
+  --accent-light: rgba(45, 134, 110, 0.08);
+
+  /* Spacing */
+  --slide-padding: 40px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
 }
 
-/* Base slide styling - REDUCED font size */
+/* Base slide styling */
 .reveal {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 28px;
+  font-size: 20px;
 }
 
 .reveal .slides section {
-  background-color: var(--lexolve-grey);
-  color: var(--lexolve-dark);
-  padding: 20px 40px;
+  background-color: var(--background);
+  color: var(--text-secondary);
+  padding: var(--slide-padding);
+  height: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-/* Headings - SMALLER sizes */
+/* Headings */
 .reveal h1, .reveal h2, .reveal h3 {
-  color: var(--lexolve-green);
-  font-weight: 700;
   text-transform: none;
-  margin-bottom: 0.4em;
+  letter-spacing: -0.02em;
 }
 
 .reveal h1 {
-  font-size: 1.8em;
-}
-
-.reveal h2 {
-  font-size: 1.4em;
+  font-size: 1.75em;
+  font-weight: 600;
+  color: var(--text-primary);
   margin-bottom: 0.5em;
 }
 
-.reveal h3 {
-  font-size: 1em;
-  color: var(--lexolve-orange);
+.reveal h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--text-primary);
   margin-bottom: 0.4em;
+}
+
+.reveal h3 {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 0.5em;
 }
 
 /* Subtitle styling */
 .reveal .subtitle {
-  color: #666;
-  font-size: 0.9em;
-  font-style: italic;
+  color: var(--text-muted);
+  font-size: 1em;
+  font-weight: 400;
   margin-top: -0.3em;
 }
 
-/* Paragraphs - tighter */
+/* Paragraphs */
 .reveal p {
-  margin: 0.4em 0;
-  line-height: 1.3;
+  margin: 0.5em 0;
+  line-height: 1.5;
+  color: var(--text-secondary);
 }
 
-/* Lists - TIGHTER spacing */
+/* Lists */
 .reveal ul, .reveal ol {
   text-align: left;
-  margin-left: 0.8em;
-  margin-top: 0.3em;
-  margin-bottom: 0.3em;
+  margin-left: 1em;
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
 }
 
 .reveal li {
-  margin-bottom: 0.25em;
-  line-height: 1.3;
+  margin-bottom: 0.35em;
+  line-height: 1.5;
+  color: var(--text-secondary);
 }
 
 .reveal li::marker {
-  color: var(--lexolve-orange);
+  color: var(--text-muted);
 }
 
 /* Nested lists */
 .reveal ul ul {
-  font-size: 0.9em;
-  color: #555;
-  margin-top: 0.2em;
+  font-size: 0.95em;
+  color: var(--text-muted);
+  margin-top: 0.25em;
 }
 
 /* Emphasis */
 .reveal strong {
-  color: var(--lexolve-green);
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 .reveal em {
-  color: var(--lexolve-orange);
+  color: var(--text-muted);
+  font-style: italic;
 }
 
 /* Links */
 .reveal a {
-  color: var(--lexolve-green);
+  color: var(--accent);
+  text-decoration: none;
 }
 
-/* Logo grid for partners slide - TIGHTER */
-.logo-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  align-items: center;
-  justify-items: center;
-  margin-top: 0.8rem;
+.reveal a:hover {
+  text-decoration: underline;
 }
 
-.logo-grid img {
-  max-height: 60px;
-  max-width: 180px;
-  object-fit: contain;
+/* Code/technical terms */
+.reveal code {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 0.15em 0.4em;
+  border-radius: var(--radius-sm);
+  font-size: 0.85em;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  color: var(--text-primary);
 }
 
-/* Title slide specific */
-.title-slide {
-  text-align: center;
-}
-
-.title-slide h1 {
-  font-size: 1.6em;
-  line-height: 1.2;
-}
-
-.title-slide .author {
-  margin-top: 1.2rem;
-  font-size: 0.9em;
-  color: #555;
-}
-
-.title-slide .author strong {
-  color: var(--lexolve-dark);
-}
-
-/* Speaker notes indicator (hidden in presentation) */
-.reveal aside.notes {
-  display: none;
-}
-
-/* Highlight boxes - SMALLER padding */
+/* Highlight boxes - shadcn card style */
 .highlight-box {
-  background: white;
-  border-left: 3px solid var(--lexolve-orange);
-  padding: 0.5rem 0.8rem;
-  margin: 0.5rem 0;
+  background: var(--card);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  margin: 0.6rem 0;
   text-align: left;
-  font-size: 0.9em;
+  font-size: 0.95em;
 }
 
-/* Two-column layout - TIGHTER gap */
+.highlight-box strong {
+  color: var(--text-primary);
+}
+
+/* Two-column layout */
 .columns {
   display: flex;
-  gap: 1.2rem;
+  gap: 1.5rem;
 }
 
 .columns .column {
@@ -156,55 +162,166 @@
   text-align: left;
 }
 
-/* Flow diagrams (text-based) - SMALLER */
+/* Flow diagrams */
 .flow {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.3rem;
-  font-size: 0.8em;
+  gap: 0.5rem;
+  font-size: 0.85em;
   flex-wrap: wrap;
+  padding: 0.5rem;
 }
 
 .flow .arrow {
-  color: var(--lexolve-orange);
-  font-weight: bold;
+  color: var(--text-muted);
+  font-weight: 500;
 }
 
 .flow .box {
-  background: white;
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
-  border: 2px solid var(--lexolve-green);
+  background: var(--background);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Logo grid for partners slide */
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  align-items: center;
+  justify-items: center;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.logo-grid img {
+  max-height: 50px;
+  max-width: 160px;
+  object-fit: contain;
+  opacity: 0.8;
+}
+
+/* Title slide specific */
+.title-slide {
+  text-align: center;
+  justify-content: center !important;
+}
+
+.title-slide h1 {
+  font-size: 1.75em;
+  line-height: 1.3;
+  margin-top: 0.5rem;
+}
+
+.title-slide .author {
+  margin-top: 1.5rem;
+  font-size: 0.9em;
+  color: var(--text-muted);
+}
+
+.title-slide .author strong {
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 /* Conclusion slide */
 .conclusion h2 {
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
 }
 
-/* Code/technical terms */
-.reveal code {
-  background: rgba(45, 134, 110, 0.1);
-  padding: 0.1em 0.25em;
-  border-radius: 3px;
-  font-size: 0.85em;
-}
-
-/* Quote styling for talepunkter preview */
+/* Quote styling */
 .reveal blockquote {
-  border-left: 3px solid var(--lexolve-orange);
-  padding-left: 0.8rem;
+  border-left: 3px solid var(--border);
+  padding-left: 1rem;
   font-style: italic;
-  color: #555;
+  color: var(--text-muted);
+  margin: 0.5rem 0;
 }
 
 /* Progress bar */
 .reveal .progress {
-  background: rgba(0, 0, 0, 0.1);
-  height: 3px;
+  background: var(--border);
+  height: 2px;
 }
 
 .reveal .progress span {
-  background: var(--lexolve-green);
+  background: var(--accent);
+}
+
+/* Speaker notes (hidden in presentation) */
+.reveal aside.notes {
+  display: none;
+}
+
+/* Lexolve logo watermark - bottom right all slides */
+.lexolve-logo {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  height: 24px;
+  opacity: 0.4;
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* Slide number styling */
+.reveal .slide-number {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--text-muted);
+  background: transparent;
+  padding: 8px 12px;
+}
+
+/* Controls styling */
+.reveal .controls {
+  color: var(--text-muted);
+}
+
+/* Card-style sections for risk boxes */
+.risk-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.risk-card.low {
+  border-left: 3px solid var(--accent);
+}
+
+.risk-card.high {
+  border-left: 3px solid var(--text-muted);
+}
+
+/* Flow container */
+.flow-container {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  margin: 0.75rem 0;
+}
+
+/* Section label */
+.section-label {
+  font-size: 0.8em;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25em;
+}
+
+/* Utility class for muted text */
+.text-muted {
+  color: var(--text-muted) !important;
 }
