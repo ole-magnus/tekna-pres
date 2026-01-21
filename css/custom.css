@@ -312,10 +312,11 @@
   margin: 0.5rem 0;
 }
 
-.ipn-badge .ipn-image {
-  height: 720px;
-  width: auto;
-  max-width: 100%;
+.reveal .ipn-badge .ipn-image {
+  height: 300px !important;
+  width: auto !important;
+  max-width: 100% !important;
+  max-height: none !important;
   object-fit: contain;
 }
 
