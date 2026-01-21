@@ -14,6 +14,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
   <!-- Custom theme -->
   <link rel="stylesheet" href="css/custom.css">
 </head>
@@ -41,14 +44,14 @@
 
       <!-- Slide 2: Intro -->
       <section>
-        <h2>Ole-Magnus Røysted Aker</h2>
+        <h2><i data-lucide="user" class="icon"></i> Ole-Magnus Røysted Aker</h2>
         <ul>
-          <li><strong>CTO i Lexolve</strong> (Tidl. Schibsted, Netlight, Tise)</li>
-          <li>Sivilingeniør & stolt Tekna-medlem</li>
-          <li><strong>Lexolve:</strong> En AI-drevet juridisk plattform for bedrifter</li>
+          <li><i data-lucide="briefcase" class="icon-inline"></i> <strong>CTO i Lexolve</strong> (Tidl. Schibsted, Netlight, Tise)</li>
+          <li><i data-lucide="graduation-cap" class="icon-inline"></i> Sivilingeniør & stolt Tekna-medlem</li>
+          <li><i data-lucide="scale" class="icon-inline"></i> <strong>Lexolve:</strong> En AI-drevet juridisk plattform for bedrifter</li>
         </ul>
         <div class="highlight-box" style="margin-top: 0.8rem;">
-          <strong>Vår filosofi:</strong> Vi automatiserer juss for sluttkunden, ikke bare for advokaten.
+          <i data-lucide="lightbulb" class="icon-inline"></i> <strong>Vår filosofi:</strong> Vi automatiserer juss for sluttkunden, ikke bare for advokaten.
         </div>
         <aside class="notes">
           Hei, jeg er sivilingeniør og Tekna-medlem, men jobber midt i smørøyet av juss og teknologi. I Lexolve bygger vi ikke verktøy for å fakturere flere timer, vi bygger plattformen som lar bedrifter løse jussen selv.
@@ -57,12 +60,15 @@
 
       <!-- Slide 3: Rammen -->
       <section>
-        <h2>Vi forsker på fremtidens juss</h2>
-        <ul>
-          <li>Nylig tildelt <strong>IPN-støtte</strong> fra Forskningsrådet</li>
-          <li>Mål: Skape trygg, etterprøvbar AI for juridiske prosesser</li>
-        </ul>
-        <p class="section-label" style="margin-top: 0.8rem;">Samarbeidspartnere</p>
+        <h2><i data-lucide="flask-conical" class="icon"></i> Vi forsker på fremtidens juss</h2>
+        <div class="ipn-badge">
+          <img src="https://www.forskningsradet.no/contentassets/e87d9b8142fa4b27a51f6c2f3c589d34/innovasjonsprosjekt-i-naringslivet-bokmal.png" alt="Innovasjonsprosjekt i Næringslivet" class="ipn-image">
+          <div>
+            <p><strong>Innovasjonsprosjekt i Næringslivet (IPN)</strong></p>
+            <p class="text-muted">Mål: Skape trygg, etterprøvbar AI for juridiske prosesser</p>
+          </div>
+        </div>
+        <p class="section-label" style="margin-top: 1rem;">Samarbeidspartnere</p>
         <div class="logo-grid">
           <img src="https://uit.no/Content/787650/cache=20221309084134/transformation=kompJpgHighTommy/Forskningsradet_Logo_Bokmal_01_Weller_RGB.png" alt="Forskningsrådet">
           <img src="https://images.squarespace-cdn.com/content/v1/5d1c6c223c9d400001e2f407/29179efa-16f3-4a94-839d-707faabbd130/sintef.png" alt="SINTEF">
@@ -76,11 +82,11 @@
 
       <!-- Slide 4: Filosofien -->
       <section>
-        <h2>Frihet under ansvar</h2>
+        <h2><i data-lucide="shield-check" class="icon"></i> Frihet under ansvar</h2>
         <h3>Vi lar LLM-en løpe løpsk – innenfor trygge rammer</h3>
         <div class="columns" style="margin-top: 0.6rem;">
           <div class="column">
-            <p class="section-label">LLM-ens styrke</p>
+            <p class="section-label"><i data-lucide="check-circle" class="icon-inline" style="color: var(--accent);"></i> LLM-ens styrke</p>
             <ul>
               <li>Språk og formulering</li>
               <li>Resonnering</li>
@@ -88,7 +94,7 @@
             </ul>
           </div>
           <div class="column">
-            <p class="section-label">LLM-ens svakhet</p>
+            <p class="section-label"><i data-lucide="alert-triangle" class="icon-inline" style="color: #ef4444;"></i> LLM-ens svakhet</p>
             <ul>
               <li>Kan hallusinere fakta</li>
               <li>Forstår ikke prosess</li>
@@ -97,7 +103,7 @@
           </div>
         </div>
         <div class="highlight-box" style="margin-top: 0.6rem;">
-          <strong>Løsningen:</strong> Vi bygger <em>Agenter</em>, ikke modeller. Vi tvinger modellen til å bruke deterministiske API-er, henvise til faktiske kilder, og estimere egen usikkerhet.
+          <i data-lucide="bot" class="icon-inline"></i> <strong>Løsningen:</strong> Vi bygger <em>Agenter</em>, ikke modeller. Vi tvinger modellen til å bruke deterministiske API-er, henvise til faktiske kilder, og estimere egen usikkerhet.
         </div>
         <aside class="notes">
           Vi prøver ikke å trene en modell til å kunne Norges Lover utenat. Vi bruker LLM-en som en resonnerings-motor, men vi tvinger den inn i strenge rammer. Den får være kreativ på språk, men den må følge våre regler på juss.
@@ -106,27 +112,27 @@
 
       <!-- Slide 5: Arkitektur Del 1 -->
       <section>
-        <h2>Fra tekst til handling</h2>
+        <h2><i data-lucide="route" class="icon"></i> Fra tekst til handling</h2>
         <h3>Intent & Routing</h3>
         <p style="margin-top: 0.4rem;">Vi bruker rammeverk som <code>LangGraph</code> for å styre flyten:</p>
         <div style="margin: 0.5rem 0;">
           <p><strong>Steg 1: Intent Identification</strong> – Hva vil brukeren?</p>
           <ul>
-            <li>Enkelt spørsmål? → <em>RAG-søk</em></li>
-            <li>Tvist? → <em>Eskalerings-agent</em></li>
-            <li>Oppsigelse? → <em>Prosess-agent</em></li>
+            <li><i data-lucide="search" class="icon-inline"></i> Enkelt spørsmål? → <em>RAG-søk</em></li>
+            <li><i data-lucide="alert-circle" class="icon-inline"></i> Tvist? → <em>Eskalerings-agent</em></li>
+            <li><i data-lucide="file-text" class="icon-inline"></i> Oppsigelse? → <em>Prosess-agent</em></li>
           </ul>
         </div>
         <div class="highlight-box">
           <strong>ReAct-mønsteret:</strong> Agenten "tenker" før den handler
           <div class="flow" style="margin-top: 0.5rem;">
-            <span class="box">Thought</span>
+            <span class="box"><i data-lucide="brain" class="icon-inline"></i> Thought</span>
             <span class="arrow">→</span>
-            <span class="box">Action</span>
+            <span class="box"><i data-lucide="play" class="icon-inline"></i> Action</span>
             <span class="arrow">→</span>
-            <span class="box">Observation</span>
+            <span class="box"><i data-lucide="eye" class="icon-inline"></i> Observation</span>
             <span class="arrow">→</span>
-            <span>...</span>
+            <span class="text-muted">...</span>
           </div>
         </div>
         <aside class="notes">
@@ -136,23 +142,23 @@
 
       <!-- Slide 6: Arkitektur Del 2 -->
       <section>
-        <h2>Juss er rekkefølge</h2>
+        <h2><i data-lucide="git-branch" class="icon"></i> Juss er rekkefølge</h2>
         <h3>DAG-basert prosessvalidering</h3>
         <p style="margin-top: 0.4rem;">En språkmodell forstår ikke tid og kausalitet.<br>Vi bruker <strong>Directed Acyclic Graphs (DAGs)</strong> for å validere logikken.</p>
         <div style="margin: 0.5rem 0;">
           <p><strong>Eksempler på "Hard Constraints":</strong></p>
           <ul>
-            <li><strong>Selskapsrett:</strong> Du kan ikke registrere en emisjon før den er vedtatt på styremøte/GF</li>
-            <li><strong>Arbeidsrett:</strong> Du kan ikke sende oppsigelse før drøftelsesmøtet er avholdt</li>
+            <li><i data-lucide="building" class="icon-inline"></i> <strong>Selskapsrett:</strong> Du kan ikke registrere en emisjon før den er vedtatt på styremøte/GF</li>
+            <li><i data-lucide="users" class="icon-inline"></i> <strong>Arbeidsrett:</strong> Du kan ikke sende oppsigelse før drøftelsesmøtet er avholdt</li>
           </ul>
         </div>
         <div class="flow-container">
           <div class="flow">
-            <span class="box">Innkalling</span>
+            <span class="box"><i data-lucide="mail" class="icon-inline"></i> Innkalling</span>
             <span class="arrow">→</span>
-            <span class="box">Drøftelsesmøte</span>
+            <span class="box"><i data-lucide="message-square" class="icon-inline"></i> Drøftelsesmøte</span>
             <span class="arrow">→</span>
-            <span class="box">Oppsigelse</span>
+            <span class="box"><i data-lucide="file-x" class="icon-inline"></i> Oppsigelse</span>
           </div>
         </div>
         <aside class="notes">
@@ -162,19 +168,19 @@
 
       <!-- Slide 7: Arkitektur Del 3 -->
       <section>
-        <h2>Når skal maskinen be om hjelp?</h2>
+        <h2><i data-lucide="help-circle" class="icon"></i> Når skal maskinen be om hjelp?</h2>
         <h3>Usikkerhet & Human-in-the-loop</h3>
         <ul style="margin-top: 0.4rem;">
-          <li><strong>Conformal Prediction:</strong> Beregner matematisk konfidensintervall på svaret</li>
-          <li><strong>Risiko-styring:</strong> Vi ruter basert på kontekst og konsekvens</li>
+          <li><i data-lucide="bar-chart-2" class="icon-inline"></i> <strong>Conformal Prediction:</strong> Beregner matematisk konfidensintervall på svaret</li>
+          <li><i data-lucide="sliders" class="icon-inline"></i> <strong>Risiko-styring:</strong> Vi ruter basert på kontekst og konsekvens</li>
         </ul>
         <div class="columns" style="margin-top: 0.6rem;">
           <div class="column risk-card low">
-            <strong>Lav risiko</strong><br>
+            <i data-lucide="check" class="icon-inline" style="color: var(--accent);"></i> <strong>Lav risiko</strong><br>
             AI svarer autonomt
           </div>
           <div class="column risk-card high">
-            <strong>Høy risiko</strong><br>
+            <i data-lucide="user-check" class="icon-inline"></i> <strong>Høy risiko</strong><br>
             Skattefunn, nedbemanning<br>
             → Eskaleres til jurist
           </div>
@@ -187,18 +193,18 @@
 
       <!-- Slide 8: Innovasjonen -->
       <section>
-        <h2>End-to-end leveranse</h2>
+        <h2><i data-lucide="layers" class="icon"></i> End-to-end leveranse</h2>
         <h3>Den uslåelige komboen</h3>
         <p style="margin-top: 0.4rem;">De fleste "Legal Tech"-verktøy er laget for advokater.<br><strong>Vi lager verktøy for sluttkunden (Bedriften).</strong></p>
         <div class="flow-container" style="margin: 0.8rem 0;">
           <div class="flow">
-            <span class="box">Kunde</span>
+            <span class="box"><i data-lucide="building-2" class="icon-inline"></i> Kunde</span>
             <span class="arrow">+</span>
-            <span class="box">AI-Agenter</span>
+            <span class="box"><i data-lucide="bot" class="icon-inline"></i> AI-Agenter</span>
             <span class="arrow">+</span>
-            <span class="box">Plattform-verktøy</span>
+            <span class="box"><i data-lucide="wrench" class="icon-inline"></i> Plattform</span>
             <span class="arrow">+</span>
-            <span class="box">Jurister</span>
+            <span class="box"><i data-lucide="gavel" class="icon-inline"></i> Jurister</span>
           </div>
         </div>
         <p style="text-align: center;"><em>Alt i én sømløs flyt</em></p>
@@ -209,16 +215,16 @@
 
       <!-- Slide 9: Konklusjon -->
       <section class="conclusion">
-        <h2>Grensene flyttes hver måned</h2>
+        <h2><i data-lucide="trending-up" class="icon"></i> Grensene flyttes hver måned</h2>
         <ul style="margin-top: 0.6rem;">
-          <li>Hva kundene klarer selv (Self-service) øker <strong>eksponentielt</strong></li>
-          <li>Vi går fra "AI som skriver" til <strong>"AI som utfører"</strong> (Agenter)</li>
+          <li><i data-lucide="zap" class="icon-inline"></i> Hva kundene klarer selv (Self-service) øker <strong>eksponentielt</strong></li>
+          <li><i data-lucide="bot" class="icon-inline"></i> Vi går fra "AI som skriver" til <strong>"AI som utfører"</strong> (Agenter)</li>
         </ul>
         <div class="highlight-box" style="margin-top: 0.8rem; text-align: center;">
-          <strong>Oppfordring:</strong> Ikke bygg egne modeller. Bygg prosesser oppå de beste modellene.
+          <i data-lucide="rocket" class="icon-inline"></i> <strong>Oppfordring:</strong> Ikke bygg egne modeller. Bygg prosesser oppå de beste modellene.
         </div>
-        <h2 style="margin-top: 1rem;">Takk for meg!</h2>
-        <p>ole-magnus@lexolve.com</p>
+        <h2 style="margin-top: 1rem;"><i data-lucide="heart" class="icon"></i> Takk for meg!</h2>
+        <p><i data-lucide="mail" class="icon-inline"></i> ole-magnus@lexolve.com</p>
         <aside class="notes">
           Vi ser at grensen for hva en kunde kan gjøre helt selv, flytter seg nesten fra måned til måned. Det som krevde advokat i fjor, løses av en agent i år. Takk for meg.
         </aside>
@@ -240,6 +246,9 @@
       transition: 'slide',
       plugins: [ RevealNotes ]
     });
+
+    // Initialize Lucide icons
+    lucide.createIcons();
   </script>
 </body>
 </html>

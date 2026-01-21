@@ -283,3 +283,52 @@
 .text-muted {
   color: var(--gray-400) !important;
 }
+
+/* Lucide Icons */
+.icon {
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+  margin-right: 0.3em;
+  stroke-width: 2;
+}
+
+.icon-inline {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-right: 0.2em;
+  stroke-width: 2;
+}
+
+.flow .box .icon-inline {
+  width: 16px;
+  height: 16px;
+  margin-right: 0.3em;
+}
+
+/* IPN Badge */
+.ipn-badge {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 1rem 0;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+  border-radius: 12px;
+  border-left: 4px solid var(--accent);
+}
+
+.ipn-badge .ipn-image {
+  height: 80px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.ipn-badge p {
+  margin: 0 0 0.3em 0;
+}
+
+.ipn-badge p:last-child {
+  margin: 0;
+}
