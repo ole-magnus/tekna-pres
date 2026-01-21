@@ -239,10 +239,10 @@
 /* Lexolve watermark */
 .lexolve-logo {
   position: fixed;
-  bottom: 24px;
-  right: 40px;
-  height: 20px;
-  opacity: 0.3;
+  top: 24px;
+  left: 40px;
+  height: 22px;
+  opacity: 0.5;
   z-index: 100;
 }
 
